@@ -7,23 +7,29 @@ How work (v1) - At first will start will one pokemon.
     2. All pokemon that can learn a pokemon move that has a type advantage over the current pokemon
 3. Output as excel/text file.
 
-
-Things to consider:
+Problems to consider for v1:
 1. Where are we getting the pokemon data?
-    1. Possibly scrape from serebii
-    2. Pretty sure there's a database with the data already
-    Possible Solutions:
-    1. pokemondb.net/pokedex/all - This has the Pokemon number, name, type, total and base stats
-    2. pokemondb.net/move/all - This is the total list of all attacks
-        - What's the best way to create a relationship between pokemon and their attacks?
-            - When you click on a move on pokemondb.net, it shows all pokemon that can learn that move!
-    
-Possible solutions:
-1. Might have to scrape this from pokemondb.net
-
 2. Are we going to store the pokemon data?
     1. If so - Database? Local file storage?
 3. Where is the user going to input the first pokemon? 
     1. Command line
     2. GUI
     3. Web application
+
+
+Decisions for v1 (December 6th):
+1. Will scrape the data from multiple places:  
+    1. pokemondb.net/pokdex/all - for the list of pokemon
+    2. pokemondb.net/move/all - for the list of all pokemon moves
+        - navigating to pokemondb.net/move/<pokemon_move> will list out the pokemon that can learn this move through eggs, tm, tr or levelling
+2. Local CSV for now
+3. Command line
+
+TO DO for v1:
+1. Get all the pokemon data into a csv file
+    - Scrape the pokemondb.net/podekex/all for all the pokemon data
+    - Save in CSV file
+2. Create command line script 
+    - Get user input for one pokemon
+    - Cross reference every pokemon that is strong vs pokemon inputted
+        - Will need pokemon type chart for this
