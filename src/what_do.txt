@@ -25,7 +25,7 @@ Decisions for v1 (December 6th):
 2. Local CSV for now
 3. Command line
 
-TO DO for v1:
+TO DO for v1 (December 6th):
 1. Get all the pokemon data into a csv file
     - Scrape the pokemondb.net/podekex/all for all the pokemon data
     - Save in CSV file
