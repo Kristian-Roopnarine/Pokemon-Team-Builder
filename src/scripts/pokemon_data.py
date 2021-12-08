@@ -4,7 +4,7 @@ import pandas as pd
 import re
 
 from ._constants import PokemonDatabaseURL
-from .models.Pokemon import Pokemon
+from ..scrapers.models.Pokemon import Pokemon
 
 COLS = ["Number", "Name", "Type 1", "Type 2", "Total Stats"] + Pokemon.STATS_ORDER
 
