@@ -4,19 +4,10 @@ import pandas as pd
 import re
 
 from ._constants import PokemonDatabaseURL
-from ..scrapers.models.Pokemon import Pokemon
+from scrapers.models.Pokemon import Pokemon
+from scrapers.pokemon_db.pokedex_scraper import PokemonDBTotalPokedexScraper
 
 COLS = ["Number", "Name", "Type 1", "Type 2", "Total Stats"] + Pokemon.STATS_ORDER
-
-
-def get_total_pokedex_html() -> str:
-    r = requests.get(url=PokemonDatabaseURL.TOTAL_POKEDEX)
-    html_text = r.text
-    return html_text
-
-
-def get_table(soup):
-    return soup.table.tbody.find_all("tr")
 
 
 def fill_pokemon_data_dict(poke_table):
@@ -58,11 +49,14 @@ def fill_pokemon_data_dict(poke_table):
 
 
 def main():
-    text = get_total_pokedex_html()
-    pokedex_soup = BeautifulSoup(text, "html.parser")
-    pokemon_table = get_table(pokedex_soup)
-    pokedex = fill_pokemon_data_dict(pokemon_table)
-    pokemon_df = pd.DataFrame.from_dict(pokedex, columns=COLS, orient="index")
+    total_pokdex_scraper = PokemonDBTotalPokedexScraper(
+        PokemonDatabaseURL.TOTAL_POKEDEX
+    )
+    pokdex_table = total_pokdex_scraper.make_request().get_pokedex_table()
+    total_pokemon_data = fill_pokemon_data_dict(pokdex_table)
+    pokemon_df = pd.DataFrame.from_dict(
+        total_pokemon_data, columns=COLS, orient="index"
+    )
     pokemon_df.to_csv("test.csv", index=False)
 
 
