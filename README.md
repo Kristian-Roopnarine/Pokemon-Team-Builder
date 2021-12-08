@@ -6,3 +6,9 @@ Playing pokemon competitively is extremely complicated. You have to create a tea
 
 When creating a pokemon team you want to have the best combination of 6 pokemon that can stand their ground against the other 892 pokemon...which is nearly impossible. Not to mention we can slightly alter the distribution of pokemon stats to make them more durable, or hit harder, which only adds to the complexity of creating a team.
 
+Start Project
+To build docker container (ensure you're in the same directory as the Dockerfile):
+```docker build -t <image_name> -f Dockerfile.dev .```
+
+To run docker container:
+```docker run -it -v "$(pwd):/usr/" <image_name> ```
