@@ -1,8 +1,8 @@
 Goal: Get the total pokemon data from pokemondb.net/pokdex/all
 
 Flow:
-1. Make request to pokemondb.net/pokedex/all
-2. Convert to soup
+1. Make request to pokemondb.net/pokedex/all (done)
+2. Convert to soup (done)
 2.1 Create dataframe to store pokemon to later convert to csv
 3. Find the elements where all pokemon are stored
     1. Find the element for name

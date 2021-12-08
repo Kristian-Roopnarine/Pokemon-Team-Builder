@@ -1,5 +1,5 @@
 class BaseConstants:
-    POKEMON_DATABASE_BASE_URL = "pokemondb.net"
+    POKEMON_DATABASE_BASE_URL = "https://pokemondb.net"
 
 
 class PokemonDatabaseURL:
