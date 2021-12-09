@@ -1,8 +1,9 @@
 from __future__ import annotations
 from bs4 import BeautifulSoup
 from bs4.element import ResultSet
-from ..scraper import Scraper
 import requests
+
+from scraping.scrapers.scraper import Scraper
 
 
 class PokemonDBTotalPokedexScraper(Scraper):

@@ -1,5 +1,4 @@
 from __future__ import annotations
-from typing import List
 
 
 class Pokemon:
@@ -8,17 +7,18 @@ class Pokemon:
     def __init__(self):
         self.number = None
         self.name = None
-        self.types = None
+        self.type_1 = None
+        self.type_2 = None
         self.total = None
         self.hp = None
         self.atk = None
         self.defense = None
         self.sp_atk = None
         self.sp_def = None
-        self.spd = None
+        self.speed = None
 
     def get_stats(self):
-        return [self.hp, self.atk, self.defense, self.sp_atk, self.sp_def, self.spd]
+        return [self.hp, self.atk, self.defense, self.sp_atk, self.sp_def, self.speed]
 
     def get_name(self):
         return self.name
@@ -27,15 +27,17 @@ class Pokemon:
         return [
             self.number,
             self.name,
-            self.types,
+            self.type_1,
+            self.type_2,
             self.total,
         ] + self.get_stats()
 
-    def create(self) -> PokemonBuilder:
+    @staticmethod
+    def create() -> PokemonBuilder:
         return PokemonBuilder()
 
     def __str__(self):
-        return f"#{self.number} {self.name} - {self.types} {self.get_stats()}"
+        return f"#{self.number} {self.name} - {self.type_1}, {self.type_2} {self.get_stats()}"
 
 
 class PokemonBuilder:
@@ -54,7 +56,7 @@ class PokemonBuilder:
         return self
 
     def add_types(self, types: list[str]) -> PokemonBuilder:
-        self.pokemon.types = types
+        self.pokemon.type_1, self.pokemon.type_2 = types
         return self
 
     def add_total(self, total: int) -> PokemonBuilder:
@@ -71,6 +73,7 @@ class PokemonBuilder:
 
     def add_def(self, defense: int) -> PokemonBuilder:
         self.pokemon.defense = defense
+        return self
 
     def add_spatk(self, spatk: int) -> PokemonBuilder:
         self.pokemon.sp_atk = spatk
