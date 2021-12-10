@@ -1,5 +1,5 @@
 import re
-from scraping.processors.pokedex.pokdex_processor import PokedexProcessor
+from base.processors.pokedex.pokdex_processor import PokedexProcessor
 from bs4 import BeautifulSoup
 
 

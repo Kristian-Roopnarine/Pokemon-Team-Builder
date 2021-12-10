@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from bs4.element import ResultSet
 import requests
 
-from scraping.scrapers.scraper import Scraper
+from base.scrapers.scraper import Scraper
 
 
 class PokemonDBTotalPokedexScraper(Scraper):

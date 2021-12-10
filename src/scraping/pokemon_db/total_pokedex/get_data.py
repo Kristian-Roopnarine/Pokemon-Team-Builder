@@ -2,7 +2,7 @@ from bs4.element import ResultSet
 import re
 import pandas as pd
 
-from .._constants import PokemonDatabaseURL
+from ..._constants import PokemonDatabaseURL
 from scraping.pokemon_db.total_pokedex.processor import PokdemonDBTotalPokedexProcessor
 from scraping.pokemon_db.total_pokedex.scraper import PokemonDBTotalPokedexScraper
 from models.pokemon import Pokemon

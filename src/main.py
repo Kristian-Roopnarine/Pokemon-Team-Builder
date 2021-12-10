@@ -1,4 +1,4 @@
-from scraping.scripts.pokemon_db import total_pokedex
+from scraping.pokemon_db.total_pokedex import get_data
 
 if __name__ == "__main__":
-    total_pokedex.main()
+    get_data.main()
