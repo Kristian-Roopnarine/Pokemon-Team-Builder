@@ -1,4 +1,4 @@
-from scraping.pokemon_db.total_pokedex import get_data
+import create_team
 
 if __name__ == "__main__":
-    get_data.main()
+    create_team.start()
